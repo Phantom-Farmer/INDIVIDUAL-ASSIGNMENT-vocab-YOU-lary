@@ -9,4 +9,4 @@ const loginFunction = () => {
   loginButton();
 };
 
-export default loginFunction;
+export { loginFunction, loginButton };
