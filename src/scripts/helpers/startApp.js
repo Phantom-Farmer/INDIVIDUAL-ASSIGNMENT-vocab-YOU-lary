@@ -1,11 +1,15 @@
 import domBuilder from '../components/domBuilder';
+import filterButtons from '../components/filterBtns';
+import logoutButton from '../components/logoutButton';
 import navBar from '../components/navBar';
-import renderToDom from './renderToDom';
+import clearDom from './clearDom';
 
 const startApp = () => {
-  renderToDom();
   domBuilder();
+  clearDom();
   navBar();
+  logoutButton();
+  filterButtons();
 };
 
 export default startApp;

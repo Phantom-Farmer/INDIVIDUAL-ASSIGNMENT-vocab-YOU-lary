@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseConfig from '../../api/apiKeys';
-import { loginFunction } from '../components/pages/loginFunction';
+import loginButton from '../components/loginButton';
 import startApp from './startApp';
 
 const checkLoginStatus = () => {
@@ -12,7 +12,7 @@ const checkLoginStatus = () => {
       startApp();
     } else {
       // person is NOT logged in
-      loginFunction();
+      loginButton();
     }
   });
 };
