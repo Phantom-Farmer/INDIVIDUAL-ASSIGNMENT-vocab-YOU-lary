@@ -1,8 +1,8 @@
 import addWordForm from '../forms/addWordForm';
 
 const navEvents = () => {
-  document.querySelector('#barNav').addEventListener('click', (event) => {
-    if (event.target.id.includes('addWord')) {
+  document.querySelector('#barNav').addEventListener('click', (e) => {
+    if (e.target.id.includes('addWord')) {
       addWordForm();
     }
   });

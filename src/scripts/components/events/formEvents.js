@@ -1,4 +1,4 @@
-import { createNewWord, updateWord } from '../../../api/words';
+import { createNewWord, updateWord, getMyWords } from '../../../api/words';
 import { renderWords } from '../myWords/renderWords';
 
 const formEvents = (uid) => {
@@ -13,7 +13,7 @@ const formEvents = (uid) => {
         time: new Date().toLocaleString(),
         uid
       };
-      createNewWord(wordObject).then((wordsArray) => renderWords(wordsArray));
+      createNewWord(wordObject).then(() => getMyWords(uid).then(renderWords, uid));
     }
 
     if (e.target.id.includes('updateWord')) {

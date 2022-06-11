@@ -14,7 +14,7 @@ const domEvents = (uid) => {
 
     if (e.target.id.includes('editMeBtn')) {
       const [, firebaseKey] = e.target.id.split('--');
-      getSingleWord(firebaseKey).then((wordObject) => addWordForm(wordObject));
+      getSingleWord(firebaseKey, uid).then((wordObject) => addWordForm(wordObject));
     }
   });
 };

@@ -2,19 +2,19 @@ import domBuilder from '../components/domBuilder';
 import logoutButton from '../components/logoutButton';
 import navBar from '../components/navBar';
 import { renderWords } from '../components/myWords/renderWords';
-import clearDom from './clearDom';
 import domEvents from '../components/events/domEvents';
 import formEvents from '../components/events/formEvents';
 import navEvents from '../components/events/navEvents';
 import { getMyWords } from '../../api/words';
+import filterButtons from '../components/filterBtns';
 
 const startApp = (user) => {
   domBuilder();
-  clearDom();
   navBar();
   logoutButton();
+  filterButtons();
   navEvents(user.uid);
-  formEvents(user);
+  formEvents(user.uid);
   domEvents(user.uid);
   getMyWords(user.uid).then((wordsArray) => renderWords(wordsArray));
 };
