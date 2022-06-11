@@ -1,17 +1,16 @@
 import clearDom from '../../helpers/clearDom';
 import renderToDom from '../../helpers/renderToDom';
+import filterButtons from '../filterBtns';
 
 const noWords = () => {
-  clearDom();
-  const domString = '<h1>Add a word to the MAX!!!</h1>';
-  renderToDom('#words-container', domString);
+  document.querySelector('#card-container').innerHTML = '<h1>DO SOMETHING!!!</h1>';
 };
 
-const renderWords = (arr) => {
+const renderWords = (array) => {
   clearDom();
-  if (arr.length) {
+  if (array.length) {
     let domString = '';
-    arr.forEach((word) => {
+    array.forEach((word) => {
       domString += `
     <div class="card" style="width: 18rem;">
   <div class="card-body">
@@ -25,6 +24,7 @@ const renderWords = (arr) => {
       </div>`;
     });
     renderToDom('#words-container', domString);
+    filterButtons();
   } else {
     noWords();
   }

@@ -4,7 +4,7 @@ import { deleteWord, getSingleWord } from '../../../api/words';
 
 const domEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
-    if (e.target.dispatchEvent.includes('delMeBtn')) {
+    if (e.target.id.includes('delMeBtn')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Are you friggin sure?')) {
         const [, firebaseKey] = e.target.id.split('--');
