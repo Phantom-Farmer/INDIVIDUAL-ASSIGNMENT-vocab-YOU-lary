@@ -11,12 +11,12 @@ import filterButtons from '../components/filterBtns';
 const startApp = (user) => {
   domBuilder();
   navBar();
-  logoutButton();
   filterButtons();
   navEvents(user.uid);
   formEvents(user.uid);
   domEvents(user.uid);
-  getMyWords(user.uid).then((wordsArray) => renderWords(wordsArray));
+  getMyWords(user.uid).then(renderWords);
+  logoutButton();
 };
 
 export default startApp;

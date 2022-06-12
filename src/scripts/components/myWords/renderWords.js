@@ -8,6 +8,7 @@ const noWords = () => {
 
 const renderWords = (array) => {
   clearDom();
+
   if (array.length) {
     let domString = '';
     array.forEach((word) => {

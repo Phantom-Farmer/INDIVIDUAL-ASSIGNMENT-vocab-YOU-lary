@@ -1,6 +1,8 @@
 import { renderWords } from '../myWords/renderWords';
 import addWordForm from '../forms/addWordForm';
-import { deleteWord, getSingleWord } from '../../../api/words';
+import {
+  deleteWord, getMyWords, getSingleWord, wordsCss, wordsHTML, wordsJavaScript, wordsPython
+} from '../../../api/words';
 
 const domEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -15,6 +17,26 @@ const domEvents = (uid) => {
     if (e.target.id.includes('editMeBtn')) {
       const [, firebaseKey] = e.target.id.split('--');
       getSingleWord(firebaseKey, uid).then((wordObject) => addWordForm(wordObject));
+    }
+
+    if (e.target.id.includes('html')) {
+      wordsHTML(uid).then(renderWords);
+    }
+
+    if (e.target.id.includes('js')) {
+      wordsJavaScript(uid).then(renderWords);
+    }
+
+    if (e.target.id.includes('python')) {
+      wordsPython(uid).then(renderWords);
+    }
+
+    if (e.target.id.includes('css')) {
+      wordsCss(uid).then(renderWords);
+    }
+
+    if (e.target.id.includes('clear')) {
+      getMyWords(uid).then(renderWords);
     }
   });
 };
